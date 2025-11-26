@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Loans - LabTrack</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="loans.css">
+</head>
+
+<body>
+    <!-- Pattern Background -->
+    <div class="pattern-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 2v6h6V2M9 16h6v6H9M2 9h6v6H2M16 9h6v6h-6" />
+                        </svg>
+                    </div>
+                    <span class="logo-text">LabTrack</span>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <button class="icon-btn" id="notificationBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg>
+                    <span class="notification-dot"></span>
+                </button>
+                <a href="index.html" class="sign-out-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Left Sidebar -->
+    <aside class="left-sidebar">
+        <div class="sidebar-content">
+            <div class="nav-section">
+                <span class="nav-section-title">NAVIGATION</span>
+            </div>
+
+            <div class="nav-items">
+                <a href="dashboard.html" class="nav-item">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                    </svg>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="inventory.html" class="nav-item">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+                    </svg>
+                    <span class="nav-text">Inventory</span>
+                </a>
+                <a href="loans.html" class="nav-item active">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span class="nav-text">Equipment Loans</span>
+                </a>
+                <a href="reports.html" class="nav-item">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                    <span class="nav-text">Reports</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    <span class="nav-text">Users</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 1v6m0 6v6" />
+                    </svg>
+                    <span class="nav-text">Settings</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- User Profile -->
+        <div class="user-profile-section">
+            <div class="user-profile-card">
+                <div class="user-avatar" id="sidebarAvatar">A</div>
+                <div class="user-info">
+                    <p class="user-name" id="sidebarUserName">Admin</p>
+                    <p class="user-role">Administrator</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="loans-content">
+            <!-- Header -->
+            <div class="loans-header">
+                <div>
+                    <h1 class="page-title">Equipment Loans</h1>
+                    <p class="page-subtitle">Track and manage equipment checkouts</p>
+                </div>
+                <button class="new-loan-btn" id="newLoanBtn" onclick="window.openLoanModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    New Loan
+                </button>
+            </div>
+
+            <!-- Search and Filters -->
+            <div class="filters-section">
+                <div class="search-box">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search loans by student or equipment...">
+                </div>
+
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Overdue">Overdue</option>
+                        <option value="Returned">Returned</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="dueDate">Due Date</option>
+                        <option value="checkoutDate">Checkout Date</option>
+                        <option value="studentName">Student Name</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon active-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Active Loans</p>
+                        <p class="stat-value" id="activeLoansCount">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon overdue-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Overdue</p>
+                        <p class="stat-value" id="overdueCount">0</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon returned-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <p class="stat-label">Returned Today</p>
+                        <p class="stat-value" id="returnedTodayCount">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loans Table -->
+            <div class="table-container">
+                <table class="loans-table" id="loansTable">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Equipment</th>
+                            <th>Checkout Date</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loansTableBody">
+                        <!-- Loans will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                <div class="empty-state" id="emptyState">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <p>No active loans found</p>
+                    <button class="new-loan-btn" onclick="window.openLoanModal()">Create New Loan</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- New Loan Modal -->
+    <div class="modal-overlay" id="loanModal">
+        <div class="modal-container modal-form">
+            <button class="modal-close" id="closeModal" onclick="window.closeModal()">&times;</button>
+            <h2 class="modal-title">New Equipment Loan</h2>
+
+            <form id="loanForm" class="loan-form">
+                <div class="form-group">
+                    <label for="studentName">Student Name *</label>
+                    <input type="text" id="studentName" required placeholder="Enter student name">
+                </div>
+
+                <div class="form-group">
+                    <label for="equipmentSelect">Equipment *</label>
+                    <select id="equipmentSelect" required>
+                        <option value="">Select Equipment</option>
+                        <!-- Options populated by JS -->
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkoutDate">Checkout Date *</label>
+                        <input type="date" id="checkoutDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dueDate">Due Date *</label>
+                        <input type="date" id="dueDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Additional notes..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="window.closeModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Create Loan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Return Confirmation Modal -->
+    <div class="modal-overlay" id="returnModal">
+        <div class="modal-container return-modal">
+            <h2 class="modal-title">Return Equipment</h2>
+            <p class="return-message">
+                Confirm return of <span class="return-item-name" id="returnItemName"></span> from <span
+                    class="return-student-name" id="returnStudentName"></span>?
+            </p>
+            <div class="return-actions">
+                <button class="btn-return-cancel" onclick="window.closeReturnModal()">Cancel</button>
+                <button class="btn-return-confirm" id="confirmReturnBtn">Confirm Return</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="loans.js"></script>
+    <script src="settings.js"></script>
+    <script>
+        // Load theme and user settings on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.loadLabTrackTheme) {
+                window.loadLabTrackTheme();
+            }
+        });
+    </script>
+</body>
+
+</html>

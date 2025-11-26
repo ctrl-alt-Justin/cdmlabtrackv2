@@ -1,0 +1,207 @@
+﻿    <!-- Main Content -->
+    <main class="main-content">
+        <div class="inventory-content">
+            <!-- Header -->
+            <div class="inventory-header">
+                <div>
+                    <h1 class="page-title">Inventory Management</h1>
+                    <p class="page-subtitle">Track and manage all laboratory equipment</p>
+                </div>
+                <button class="add-item-btn" id="addItemBtn" onclick="window.openAddModal()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    Add New Item
+                </button>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="filters-section">
+                <div class="search-box">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search items...">
+                </div>
+
+                <div class="filter-group">
+                    <label>Stock Status:</label>
+                    <select id="stockFilter">
+                        <option value="all">All Stock</option>
+                        <option value="In Stock">In Stock</option>
+                        <option value="Low Stock">Low Stock</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Condition:</label>
+                    <select id="conditionFilter">
+                        <option value="all">All Conditions</option>
+                        <option value="Available">Available</option>
+                        <option value="For Repairs">For Repairs</option>
+                        <option value="Broken">Broken</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Location:</label>
+                    <select id="locationFilter">
+                        <option value="all">All Locations</option>
+                        <option value="Computer Lab">Computer Lab</option>
+                        <option value="ECE Lab">ECE Lab</option>
+                        <option value="Chemistry Lab">Chemistry Lab</option>
+                        <option value="Physics Lab">Physics Lab</option>
+                        <option value="EE Lab">EE Lab</option>
+                        <option value="ME Lab">ME Lab</option>
+                        <option value="CE Lab">CE Lab</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort By:</label>
+                    <select id="sortFilter">
+                        <option value="recent">Recently Added</option>
+                        <option value="name">Name (A-Z)</option>
+                        <option value="quantity">Quantity</option>
+                        <option value="stock">Stock Status</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Inventory Table -->
+            <div class="table-container">
+                <table class="inventory-table" id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Control ID</th>
+                            <th>Quantity</th>
+                            <th>Location</th>
+                            <th>Stock</th>
+                            <th>Condition</th>
+                            <th>Supplier</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryTableBody">
+                        <!-- Items will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+                <div class="empty-state" id="emptyState">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+                    </svg>
+                    <p>No items found</p>
+                    <button class="add-item-btn" onclick="window.openAddModal()">Add Your First Item</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Item Modal -->
+    <div class="modal-overlay" id="itemModal">
+        <div class="modal-container modal-form">
+            <button class="modal-close" id="closeModal" onclick="window.closeModal()">&times;</button>
+            <h2 class="modal-title" id="modalTitle">Add New Item</h2>
+
+            <form id="itemForm" class="item-form">
+                <input type="hidden" id="itemId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemName">Item Name *</label>
+                        <input type="text" id="itemName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="controlId">Control ID *</label>
+                        <input type="text" id="controlId" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">Quantity *</label>
+                        <input type="number" id="quantity" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="supplier">Supplier</label>
+                        <input type="text" id="supplier">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location *</label>
+                        <select id="location" required>
+                            <option value="">Select Location</option>
+                            <option value="Computer Lab">Computer Lab</option>
+                            <option value="ECE Lab">ECE Lab</option>
+                            <option value="Chemistry Lab">Chemistry Lab</option>
+                            <option value="Physics Lab">Physics Lab</option>
+                            <option value="EE Lab">EE Lab</option>
+                            <option value="ME Lab">ME Lab</option>
+                            <option value="CE Lab">CE Lab</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock Status *</label>
+                        <select id="stock" required>
+                            <option value="">Select Status</option>
+                            <option value="In Stock">In Stock</option>
+                            <option value="Low Stock">Low Stock</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="condition">Condition *</label>
+                        <select id="condition" required>
+                            <option value="">Select Condition</option>
+                            <option value="Available">Available</option>
+                            <option value="For Repairs">For Repairs</option>
+                            <option value="Broken">Broken</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="remarks">Remarks</label>
+                    <textarea id="remarks" rows="3" placeholder="Additional notes..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancelBtn"
+                        onclick="window.closeModal()">Cancel</button>
+                    <button type="submit" class="btn-submit">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal-container delete-modal">
+            <h2 class="modal-title">Delete Item?</h2>
+            <p class="delete-message">
+                Are you sure you want to delete <span class="delete-item-name" id="deleteItemName"></span>? This action
+                cannot be undone.
+            </p>
+            <div class="delete-actions">
+                <button class="btn-delete-cancel" onclick="window.closeDeleteModal()">Cancel</button>
+                <button class="btn-delete-confirm" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="inventory.js"></script>
+</body>
+
+</html>

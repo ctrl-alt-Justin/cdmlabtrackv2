@@ -1,0 +1,174 @@
+INSTRUCTIONS TO FIX LOANS AND REPORTS PAGES BACKGROUND
+======================================================
+
+The loans.html, loans.css, reports.html, and reports.css files are currently corrupted.
+Here's the minimal fix needed:
+
+STEP 1: Fix loans.html
+-----------------------
+The file needs proper HTML head and body tags. At minimum, add this after line 3:
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Loans - LabTrack</title>
+    <link rel="stylesheet" href="loans.css">
+</head>
+
+<body>
+    <!-- Pattern Background -->
+    <div class="pattern-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+STEP 2: Fix loans.css
+----------------------
+Add these styles at the TOP of the file (after line 4, before any other CSS):
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Pattern Background (Animated Orbs) */
+.pattern-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.6;
+}
+
+.orb-1 {
+    top: -80px;
+    left: -80px;
+    width: 384px;
+    height: 384px;
+    background: radial-gradient(circle, #ea580c 0%, transparent 70%);
+    animation: float1 10s ease-in-out infinite;
+}
+
+.orb-2 {
+    bottom: -128px;
+    right: -128px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #dc2626 0%, transparent 70%);
+    opacity: 0.5;
+    animation: float2 12s ease-in-out infinite 1s;
+}
+
+.orb-3 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #581c87 0%, transparent 70%);
+    opacity: 0.4;
+    filter: blur(120px);
+    animation: float3 15s ease-in-out infinite 2s;
+}
+
+.orb-4 {
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #f97316 0%, transparent 70%);
+    opacity: 0.4;
+    filter: blur(80px);
+    animation: float4 8s ease-in-out infinite 0.5s;
+}
+
+@keyframes float1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(300px, 150px) scale(1.4);
+    }
+    66% {
+        transform: translate(-200px, 200px) scale(0.9);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-300px, -150px) scale(1.6);
+    }
+    66% {
+        transform: translate(200px, -200px) scale(0.9);
+    }
+}
+
+@keyframes float3 {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    25% {
+        transform: translate(calc(-50% + 400px), calc(-50% - 200px)) scale(1.4);
+    }
+    50% {
+        transform: translate(calc(-50% - 400px), calc(-50% + 200px)) scale(0.8);
+    }
+    75% {
+        transform: translate(calc(-50% + 200px), calc(-50% + 100px)) scale(1.2);
+    }
+}
+
+@keyframes float4 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-150px, 200px) scale(1.3);
+    }
+    66% {
+        transform: translate(100px, -100px) scale(0.9);
+    }
+}
+
+/* Top Navigation */
+.top-nav {
+    position: fixed;
+
+
+STEP 3: Fix reports.html
+-------------------------
+Same fix as loans.html - add this right after the opening <body> tag:
+
+    <!-- Pattern Background -->
+    <div class="pattern-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+
+STEP 4: Fix reports.css
+------------------------
+Add the same CSS as Step 2 to the top of reports.css file.
+
+The animated background orbs will now appear on both pages matching the dashboard!

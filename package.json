@@ -1,0 +1,17 @@
+{
+  "name": "labtrack-v2",
+  "version": "1.0.0",
+  "description": "Laboratory Inventory Tracking System",
+  "scripts": {
+    "dev": "npx live-server . --entry-file=index.html",
+    "build": "echo \"No build step required for static site\" && exit 0",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "lab",
+    "inventory",
+    "tracking"
+  ],
+  "author": "LabTrack Team",
+  "license": "ISC"
+}
